@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: ${MYSQL_URL:jdbc:mariadb://localhost:3306/logistics?useUnicode=true&characterEncoding=utf8mb4}
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:1234}

@@ -1,0 +1,11 @@
+Base: kjm04061132/backend
+Added from backend_merge: .mvn/, Dockerfile, mvnw, mvnw.cmd
+Kept kjm versions for conflicting files to preserve current public-search/chat/paging-related backend behavior.
+Merged application.yml to support both environment-variable deployment and existing local fallback values.
+Conflicting files kept from kjm base:
+- src/main/java/com/logistics/app/controller/UserController.java
+- src/main/java/com/logistics/app/dto/UserDtos.java
+- src/main/java/com/logistics/app/entity/User.java
+- src/main/java/com/logistics/app/repository/UserRepository.java
+- src/main/java/com/logistics/app/service/DataInitializer.java
+- src/main/java/com/logistics/app/service/UserService.java

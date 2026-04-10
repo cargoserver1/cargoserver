@@ -1,0 +1,19 @@
+공용 PostgreSQL 연결 기본 설정
+
+기본 backend 설정은 아래 값으로 맞춰져 있습니다.
+- DB_URL=jdbc:postgresql://192.168.0.23:5432/logistics
+- DB_USERNAME=postgres
+- DB_PASSWORD=1234
+- JPA_DDL_AUTO=update
+
+팀원별로 IP나 비밀번호가 다르면 STS Run Configuration 또는 OS 환경변수에서 DB_URL, DB_USERNAME, DB_PASSWORD만 바꿔서 실행하면 됩니다.
+
+기본 실행 순서
+1. 공용 DB 서버 PC에서 PostgreSQL 서비스 실행
+2. logistics 데이터베이스 생성
+3. postgresql.conf 에서 listen_addresses = '*'
+4. pg_hba.conf 에서 192.168.0.0/24 허용
+5. Windows 방화벽에서 5432 허용
+6. 각 팀원 PC에서 backend 실행
+
+STS에서 바로 실행해도 application.yml 기본값으로 접속되도록 구성했습니다.

@@ -1,0 +1,392 @@
+/* 공통 레이아웃 (로그인/회원가입 공용) */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f6f8;
+}
+
+.login-box {
+  width: 350px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+/* 공통 입력/텍스트 스타일 */
+.login-title {
+  margin-bottom: 25px;
+}
+
+.login-label {
+  display: block;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-input {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.login-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  background: #2c7be5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background: #1a5edb;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto 5px;
+}
+
+.label-row .login-label {
+  margin: 0;
+}
+
+/* 비밀번호 체크 메시지 */
+.password-check {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.password-check.success {
+  color: #22c55e;
+}
+
+.password-check.error {
+  color: #ef4444;
+}
+
+/* 로그인 페이지 전용 */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 10px auto;
+  font-size: 13px;
+}
+
+.login-options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.find-password {
+  cursor: pointer;
+  color: #666;
+}
+
+.divider {
+  margin: 10px 0;
+  font-size: 12px;
+  color: #999;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.kakao-button {
+  width: 100%;
+  padding: 12px;
+  background: #fee500;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.signup {
+  font-size: 13px;
+}
+
+.signup-link {
+  color: #2c7be5;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-hint {
+  font-size: 12px;
+  color: #999;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.sample-account {
+  width: 100%;
+  max-width: 320px;
+  margin: 5px auto 10px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: left;
+}
+
+/* 공통 기타 UI */
+/* 메인 페이지 이동 (링크 스타일) */
+.back-to-main {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  text-align: center;
+}
+
+.back-to-main:hover {
+  text-decoration: underline;
+}
+
+/* 회원가입 선택 페이지 (화주/차주 선택 카드) */
+.signup-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  flex: 1;
+  min-height: 150px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.signup-card.active {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border: 2px solid #2c7be5;
+  background: #eff6ff;
+}
+
+.signup-card:hover {
+  border-color: #3b82f6;
+}
+
+.signup-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.signup-header {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.signup-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-top: -10px;
+}
+
+.signup-card-desc {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.signup-back {
+  margin-top: 15px;
+}
+
+.signup-form-area {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.signup-form-area.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.form-placeholder {
+  padding: 30px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* 드라이버(차주) 전용 - 차량 선택 */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 10px;
+}
+
+.vehicle-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 110px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  z-index: 10;
+}
+
+.vehicle-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.vehicle-item:hover {
+  background: #f1f5f9;
+}
+
+.vehicle-item.active {
+  background: #2c7be5;
+  color: white;
+}
+
+/* 회원가입 2분할 레이아웃 (공통) */
+.signup-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 왼쪽 영역 */
+.signup-left {
+  flex: 0.3;
+  background: linear-gradient(135deg, #2c7be5, #1a5edb);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-left-content {
+  max-width: 400px;
+  padding: 40px;
+}
+
+.signup-left h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.signup-left p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 오른쪽 영역 */
+.signup-right {
+  flex: 0.7;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f8;
+  text-align: center;
+}
+
+/* 회원가입 내부 UI */
+.signup-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.signup-card-container {
+  display: flex;
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .signup-left {
+    display: none;
+  }
+
+  .signup-right {
+    flex: 1;
+    width: 100%;
+  }
+}
+.helper-text {
+  margin-top: 8px;
+  color: #6f7b91;
+  font-size: 13px;
+  line-height: 1.5;
+}
