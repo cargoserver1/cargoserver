@@ -15,6 +15,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/ws")
                 .setAllowedOriginPatterns(
                         "http://localhost:5173",
+                        "http://192.168.0.23:5173",
                         "https://*.vercel.app"
                 )
                 .withSockJS();
