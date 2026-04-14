@@ -53,6 +53,8 @@ public class SecurityConfig {
         configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:5173",
                 "http://192.168.0.*",
+                "http://192.168.1.*",
+                "http://10.*",
                 "https://*.vercel.app"
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
