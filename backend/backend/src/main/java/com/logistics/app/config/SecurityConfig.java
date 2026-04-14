@@ -25,10 +25,12 @@ import java.util.List;
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final String allowedOrigin;
 
     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
                           @Value("${app.cors.allowed-origin}") String allowedOrigin) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.allowedOrigin = allowedOrigin;
     }
 
     @Bean
@@ -39,7 +41,7 @@ public class SecurityConfig {
                 })
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/","/auth/**", "/public/**", "/ws/**", "/uploads/**").permitAll()
+                        .requestMatchers("/auth/**", "/public/**", "/ws/**", "/uploads/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
@@ -52,9 +54,6 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:5173",
-                "http://192.168.0.*",
-                "http://192.168.1.*",
-                "http://10.*",
                 "https://*.vercel.app"
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));

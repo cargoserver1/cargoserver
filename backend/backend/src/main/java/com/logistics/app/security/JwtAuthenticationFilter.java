@@ -24,26 +24,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                   HttpServletResponse response,
-                                   FilterChain filterChain)
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        String path = request.getRequestURI();
-
-        // 🔥 🔥 🔥 핵심: permitAll 경로는 JWT 검사 자체를 건너뜀
-        if (path.equals("/") ||
-            path.startsWith("/auth") ||
-            path.startsWith("/public") ||
-            path.startsWith("/ws") ||
-            path.startsWith("/uploads")) {
-
-            filterChain.doFilter(request, response);
-            return;
-        }
-
         String authHeader = request.getHeader("Authorization");
-
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             try {
                 String token = authHeader.substring(7);
@@ -53,24 +37,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 String role = String.valueOf(claims.get("role"));
 
                 if (email != null && !email.isBlank()) {
-                    UsernamePasswordAuthenticationToken authentication =
-                            new UsernamePasswordAuthenticationToken(
-                                    email,
-                                    null,
-                                    role == null || role.isBlank()
-                                            ? List.of()
-                                            : List.of(new SimpleGrantedAuthority("ROLE_" + role))
-                            );
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                            email,
+                            null,
+                            role == null || role.isBlank()
+                                    ? List.of()
+                                    : List.of(new SimpleGrantedAuthority("ROLE_" + role))
+                    );
 
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             } catch (Exception e) {
-                // 🔥 토큰 이상하면 인증 제거 (에러 던지지 않음)
                 SecurityContextHolder.clearContext();
             }
         }
 
-        // 🔥 필터 계속 진행 (이게 있어야 403 안 걸림)
         filterChain.doFilter(request, response);
     }
 }
