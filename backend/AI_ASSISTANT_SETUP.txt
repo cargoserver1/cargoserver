@@ -1,0 +1,25 @@
+AI 비서 설정 안내
+
+1. 기본 동작
+- OPENAI_API_KEY가 없어도 규칙 기반 + FAQ 기반 답변은 동작합니다.
+- 수수료, 차량 정보 수정 위치, 화물 등록 방법, 결제수단 변경 같은 자주 묻는 질문은 바로 답합니다.
+
+2. OpenAI 연동을 켜고 싶을 때
+- 환경변수에 아래 값을 추가하세요.
+  OPENAI_API_KEY=발급받은키
+  OPENAI_MODEL=gpt-4o-mini
+
+3. 백엔드 설정 위치
+- backend/src/main/resources/application.yml
+- app.ai.openai.api-key
+- app.ai.openai.model
+- app.ai.openai.base-url
+
+4. 프론트 위치
+- 로그인 후 오른쪽 하단 빠른 메뉴 > AI 버튼
+
+5. 현재 추가된 기능
+- 대화 이력 일부 유지
+- 빠른 질문 버튼 제공
+- FAQ/공지/프로필 정보 기반 답변 강화
+- 응답 톤 존댓말 고정
